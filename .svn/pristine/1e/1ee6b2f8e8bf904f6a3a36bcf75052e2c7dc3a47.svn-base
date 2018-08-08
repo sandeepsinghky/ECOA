@@ -1,0 +1,22 @@
+businessAreaId=99
+appIDReqNCID=dhhs-ssp-appid
+appPwdReqNCID=#appssp#
+searchOp=OEM
+dbSchema="DHRZFKF"
+dbSchemaSQL=fkf
+smtpServer=
+smtpFromAddress=
+smtpTimeout=
+contactUsToAddress=
+adminAccountId=
+#DefaultRoles=
+accountDetailsUrl=
+registerUrl=
+maxGraceLogins=10
+maxRegFailAttempts =3
+application.primaryEmail =e.childsupport@dhhs.nc.gov
+otherEmail=CSS_APPL_SUPPORT@dhhs.nc.gov
+cseOfficeLocator=http://10.55.31.228/ecoa/clerkOfCourtSearch/AGCY.htm
+application.emailMsgNotify=CSS_APPL_SUPPORT@dhhs.nc.gov
+
+

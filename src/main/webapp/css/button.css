@@ -1,0 +1,82 @@
+button {
+	border: 0;
+	cursor: pointer;
+	padding-top: 0;
+	padding-right: 10px;
+	padding-bottom: 0;
+	padding-left: 0;
+	margin-top: -1px;
+	margin-right: 3px;
+	margin-bottom: 0;
+	margin-left: 0;
+	text-align: center;
+	color: #fff;
+	font-weight: 600;
+	font-size: 95%;
+	background-color: transparent;
+	background-position: right;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	_width: auto; .
+	width: auto;
+	_overflow: visible; .
+	overflow: visible;
+	_margin-top: -2px; .
+	margin-top: -2px;
+	background-image: url(../images/btn_olive.gif);
+}
+
+button span {
+	display: block;
+	white-space: nowrap;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 10px;
+	height: 25px;
+	line-height: 25px;
+	background-position: left;
+	background-repeat: no-repeat;
+	_margin-top: 2px; .
+	margin-top: 2px;
+	background-image: url(../images/btn_olive.gif);
+}
+
+button:hover {
+	background-image: url(../images/btn_olive_hover.gif);
+}
+
+button:hover span {
+	background-image: url(../images/btn_olive_hover.gif);
+}
+
+.homeBtn {
+	padding-top: 0;
+	padding-bottom: 2px;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.homeBtn a:link {
+	text-decoration: none;
+}
+
+.homeBtn a:visited {
+	text-decoration: none;
+}
+
+.homeBtn a:hover {
+	text-decoration: none;
+}
+
+a:link.button {
+	text-decoration: none;
+}
+
+a:visited.button {
+	text-decoration: none;
+}
+
+a:hover.button {
+	text-decoration: none;
+}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+
+	<!-- *************************************************************************** -->
+
+	<!-- Enable Annotation based Declarative Transaction Management -->
+	<tx:annotation-driven proxy-target-class="true"
+		transaction-manager="transactionManager" />
+
+	<!-- Creating TransactionManager Bean, since JDBC we are creating of type 
+		DataSourceTransactionManager -->
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/ecoaDS" />
+
+	<bean id="caseApplDao" class="nc.dhhs.nccss.acts.dao.impl.CaseApplicationDaoImpl" />
+
+	<bean id="casePartDao" class="nc.dhhs.nccss.acts.dao.impl.CaseParticipantDaoImpl" />
+
+	<bean id="casePartAddrDao" class="nc.dhhs.nccss.acts.dao.impl.CasePartAddrDaoImpl" />
+	
+	<bean id="casePartContactDao" class="nc.dhhs.nccss.acts.dao.impl.CasePartContactDaoImpl"/>
+
+	<bean id="casePartIncomeDao" class="nc.dhhs.nccss.acts.dao.impl.CasePartIncomeDaoImpl" />
+
+	<bean id="codeLookUpDao" class="nc.dhhs.nccss.acts.dao.impl.CodeLookUpDaoImpl" />
+
+	<bean id="guideLinesDao" class="nc.dhhs.nccss.acts.dao.impl.GuideLinesDaoImpl" />	
+
+	<bean id="participantDao" class="nc.dhhs.nccss.acts.dao.impl.ParticipantDaoImpl" />
+
+	<bean id="workFlowDao" class="nc.dhhs.nccss.acts.dao.impl.WorkFlowDaoImpl" />
+
+	<bean id="benefitDao" class="nc.dhhs.nccss.acts.dao.impl.CasePartBenefitDaoImpl" />
+
+	<bean id="thirdPartyDao" class="nc.dhhs.nccss.acts.dao.impl.ThirdPartyDaoImpl" />
+
+	<bean id="userSignatureDAO" class="nc.dhhs.nccss.acts.dao.impl.UserSignatureDaoImpl" />
+	
+	<bean id="casePartChldAffilDAO" class="nc.dhhs.nccss.acts.dao.impl.CasePartChldAffilDaoImpl" />
+	
+	<bean id="partNCPExtDao" class="nc.dhhs.nccss.acts.dao.impl.CasePartNCPExtDaoImpl" />
+	
+	<bean id="caseVehicleDao" class="nc.dhhs.nccss.acts.dao.impl.CaseVehicleDaoImpl" />
+	
+	<bean id="casePartOtherDao" class="nc.dhhs.nccss.acts.dao.impl.CasePartOtherDaoImpl" />
+	
+	<bean id="caseOrderDao" class="nc.dhhs.nccss.acts.dao.impl.CaseCourtOrderDaoImpl" />
+	
+	<bean id="casePartEmpDAO" class="nc.dhhs.nccss.acts.dao.impl.CasePartEmpDaoImpl" />
+	
+	<bean id="casePartInsuranceDao" class="nc.dhhs.nccss.acts.dao.impl.CasePartInsuranceDaoImpl" />
+	
+	<bean id="casePartProfileDao" class="nc.dhhs.nccss.acts.dao.impl.CasePartProfileDaoImpl" />
+	
+	<bean id="caseOrderChildDao" class="nc.dhhs.nccss.acts.dao.impl.CasePartOrderDaoImpl" />
+
+	<bean id="alertDAO" class="nc.dhhs.nccss.acts.dao.impl.AlertDaoImpl" />
+	
+	<bean id="casePartPaterntyDao" class="nc.dhhs.nccss.acts.dao.impl.CasePartPaterntyDaoImpl" />
+	
+	<bean id="casePartProfileExtDao" class="nc.dhhs.nccss.acts.dao.impl.CasePartProfileExtDaoImpl" />
+	
+	<bean id="userDAO" class="nc.dhhs.nccss.acts.dao.impl.UserDaoImpl" />
+	
+	<bean id="userAuthorityDAO" class="nc.dhhs.nccss.acts.dao.impl.UserAuthorityDaoImpl" />
+	
+	<bean id="roleToPermissionDAO" class="nc.dhhs.nccss.acts.dao.impl.RoleToPermissionDaoImpl" />
+	
+	<bean id="permissionDAO" class="nc.dhhs.nccss.acts.dao.impl.PermissionDaoImpl" />
+	
+	<bean id="parentCaseInfoDao" class="nc.dhhs.nccss.acts.dao.impl.ParentCaseInfoDaoImpl" />
+
+	<bean id="parentUserInfoDao" class="nc.dhhs.nccss.acts.dao.impl.ParentUserInfoDaoImpl" />
+	
+	<bean id="scheduleDao" class="nc.dhhs.nccss.acts.dao.impl.CaseScheduleDaoImpl" />
+    
+    <bean id="obligationDao" class="nc.dhhs.nccss.acts.dao.impl.CaseObligationDaoImpl" /> 
+     
+	<bean id="clerkOfCourtDao" class="nc.dhhs.nccss.acts.dao.impl.SearchClerkOfCourtDaoImpl"/> 
+	  
+    <bean id="paymentHistoryDao" class="nc.dhhs.nccss.acts.dao.impl.PaymentHistoryDaoImpl"/> 
+	
+	<bean id="registerDao" class="nc.dhhs.nccss.acts.dao.impl.UserRegisterDaoImpl"/>
+	
+	<bean id="feedBackDao" class="nc.dhhs.nccss.acts.dao.impl.FeedBackDaoImpl"/>
+	
+	<bean id="requestDao" class="nc.dhhs.nccss.acts.dao.impl.RequestPaymentDaoImpl"/>
+
+	
+
+
+	<!-- we don't need below if we are doing autowiring -->
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+		<constructor-arg ref="dataSource" /> </bean> <bean id="caseApplDao" class="nc.dhhs.nccss.acts.dao.impl.CaseApplicationDaoImpl"> 
+		<property name="dataSource" ref="dataSource"></property> <constructor-arg 
+		ref="transactionManager"/> </bean> -->
+
+
+
+</beans>

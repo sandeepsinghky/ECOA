@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- *************************************************************************** -->
+	<!-- =========== BEAN DEFINITONS FOR THE SERVICE OBJECTS ================ -->
+
+	<bean id="contextApplicationContextProvider" class="nc.dhhs.nccss.acts.ecoa.web.ApplicationContextProvider" />
+
+	<bean id="userSignatureService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.UserSignatureServiceImpl" />
+	
+	<bean id="userService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.UserServiceImpl" />
+
+	<bean id="usageService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.UsageServiceImpl" />
+
+	<bean id="caseApplService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.CaseApplicationServiceImpl" />	
+	
+	<bean id="casePartService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.CaseParticipantServiceImpl" />
+	
+	<bean id="codeLookUpService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.CodeLookUpServiceImpl" />	
+	
+	<bean id="workFlowService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.WorkFlowServiceImpl" />
+	
+	<bean id="alertService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.AlertServiceImpl" />
+	
+	<bean id="userAuthorityService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.UserAuthorityServiceImpl" />
+	
+	<bean id="roleToPermissionService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.RoleToPermissionServiceImpl" />
+	
+	<bean id="permissionService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.PermissionServiceImpl" />
+     
+     <bean id="caseInfoService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.ParentCaseInfoServiceImpl" />
+		
+	<bean id="userInfoService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.ParentUserInfoServiceImpl" />
+		
+	<bean id="caseScheduleService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.CaseScheduleServiceImpl" />
+	
+	<bean id="caseObligationService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.CaseObligationServiceImpl" />	
+
+    <bean id="searchClerkService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.SearchClerkOfCourtServiceImpl" />	
+    
+    <bean id="paymentHistService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.PaymentHistoryServiceImpl" />
+
+    <bean id="registerService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.UserRegisterServiceImpl" />	
+    
+    <bean id="feedbackService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.FeedbackServiceImpl" />
+
+    <bean id="requestPaymentService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.RequestPaymentServiceImpl" />	
+     	 	 
+     
+	
+</beans>

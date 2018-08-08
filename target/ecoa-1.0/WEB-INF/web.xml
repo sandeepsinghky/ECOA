@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>eChild Online Application</display-name>	
+
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>SiteSessionFilter</filter-name>
+		<filter-class>nc.dhhs.nccss.acts.ecoa.web.servlets.filters.SiteSessionFilter</filter-class>
+		<init-param>
+			<param-name>avoid-urls</param-name>
+			<param-value>index.jsp, parentsIndex.jsp, employersIndex.jsp, error.jsp, 403.jsp, 404.jsp</param-value>
+		</init-param>
+	</filter>
+		
+	<filter>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
+	</filter>	
+	
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>	
+
+	<filter-mapping>
+		<filter-name>SiteSessionFilter</filter-name>
+		<url-pattern>/cssp/**</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<url-pattern>*.htm</url-pattern>		
+	</filter-mapping>		
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/ecoa-servlet.xml,/WEB-INF/config/ecoa-service.xml,/WEB-INF/config/ecoa-security.xml,/WEB-INF/config/ecoa-datasource.xml, /WEB-INF/config/ecoa-mail.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>ecoa</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+		</init-param>
+		<init-param>
+	     	<param-name>contextConfigLocation</param-name>
+	     	<param-value>nc.dhhs.nccss.acts.ecoa.web.reports.config.ReportWebConfiguration</param-value>
+	   </init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ecoa</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet-mapping>
+		<servlet-name>ecoa</servlet-name>
+		<url-pattern>*.json</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ecoa</servlet-name>
+		<url-pattern>/reports</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>	
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.htm</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/403.htm</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error.htm</location>
+	</error-page>
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>redirect.jsp</welcome-file>
+	</welcome-file-list>
+
+    <resource-ref>
+		<res-ref-name>jdbc/ecoaDS</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+	
+</web-app>

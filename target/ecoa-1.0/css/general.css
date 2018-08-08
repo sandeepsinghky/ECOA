@@ -1,0 +1,98 @@
+.validation-errors h4 {
+	margin: 0;
+	padding: 2px 0 0 5px;
+	font-size: 1em;
+}
+
+.validation-errors {
+	border-top: solid 1px #FBC2C4;
+	border-bottom: solid 1px #FBC2C4;
+	background-color: #FBE3E4;
+	color: #D12F19;
+	padding: 7px;
+	margin-bottom: 2px;
+}
+
+.message-box {
+	font-weight: bold;
+	padding: 7px;
+	text-align: center;
+	margin: 0 auto;
+	width: 50%;
+}
+
+.success {
+	border-top: solid 1px #349534;
+	border-bottom: solid 1px #349534;
+	background-color: #C9FFCA;
+	color: #008000;
+}
+
+.notice {
+	border-top: solid 1px #FFD324;
+	border-bottom: solid 1px #FFD324;
+	background-color: #FFF6BF;
+	color: #817134;
+}
+
+.error {
+	border-top: solid 1px #FBC2C4;
+	border-bottom: solid 1px #FBC2C4;
+	background-color: #FBE3E4;
+	color: #D12F19;
+}
+
+.problem-box {
+	text-align: left;
+	width: 300px;
+	padding: 20px;
+	margin: 0 auto;
+	border: 1px solid #CFCFCF;
+	font-family: Tahoma;
+	background-color: #FFF;
+}
+
+.problem-box .problem-header {
+	padding-left: 25px;
+	padding-bottom: 7px;
+	border-bottom: 1px solid #CFCFCF;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-image: url('../images/error.png');
+	font-size: 16px;
+	font-weight: bold;
+	color: red;
+
+}
+
+.problem-box .problem-content {
+	font-size: 14px;
+	padding-top: 10px;
+	color: red;
+}
+
+.hideMe {
+	display: none;
+}
+
+.dateField {
+	width: 70px;
+}
+
+.errorInput {
+	border-color: Red;
+}
+
+#successMsg {
+	color: red;
+	font-size: 18pt;
+}
+
+.scrollDiv {
+	height: 400px;
+	overflow: scroll;
+}
+
+.specimenId {
+	width: 80px;
+}

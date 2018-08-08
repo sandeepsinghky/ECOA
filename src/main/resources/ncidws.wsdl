@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:sch="http://ncidng.nc.gov/NCIDNGWebService/schemas"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ncidng.nc.gov/NCIDNGWebService/definitions"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ncidng.nc.gov/NCIDNGWebService/definitions">
+	<wsdl:types>
+		<xs:schema xmlns:ncidng="http://ncidng.nc.gov/NCIDNGWebService/schemas"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+			targetNamespace="http://ncidng.nc.gov/NCIDNGWebService/schemas">
+			<xs:element name="authenticateToNCIDv2Request">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="UserID" type="xs:string" />
+						<xs:element name="UserPassword" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="subscribeUserToGroupRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="memberDN" type="xs:string" />
+						<xs:element name="groupDN" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UnsubscribeUserFromGroupRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="memberDN" type="xs:string" />
+						<xs:element name="groupDN" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="modifyGroupRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="memberDN" type="xs:string" />
+						<xs:element name="groupDN" type="xs:string" />
+						<xs:element name="action" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="isMemberOfAGroupRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="memberDN" type="xs:string" />
+						<xs:element name="groupDN" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchUserByLoginIDRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="UserID" type="xs:string" />
+						<xs:element name="SearchOp" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchUserByGUIDRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="GUID" type="xs:string" />
+						<xs:element name="SearchOp" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewUserByLoginIDRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="UserID" type="xs:string" />
+						<xs:element name="SearchOp" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewUserByGUIDRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="GUID" type="xs:string" />
+						<xs:element name="SearchOp" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewUserByDNRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="UserDN" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchUserByAttrRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="AttrName" type="xs:string" />
+						<xs:element name="AttrVal" type="xs:string" />
+						<xs:element name="SearchOp" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchAgenciesRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="AttrName" type="xs:string" />
+						<xs:element name="AttrVal" type="xs:string" />
+						<xs:element name="SearchOp" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchDivisionsRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="AttrName" type="xs:string" />
+						<xs:element name="AttrVal" type="xs:string" />
+						<xs:element name="SearchOp" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchSectionsRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="AppID" type="xs:string" />
+						<xs:element name="AppPassword" type="xs:string" />
+						<xs:element name="AttrName" type="xs:string" />
+						<xs:element name="AttrVal" type="xs:string" />
+						<xs:element name="SearchOp" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="authenticateToNCIDv2Response">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:authenticateToNCIDv2Result" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="authenticateToNCIDv2Result">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0"
+							ref="ncidng:MessageArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchUserByLoginIDResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:searchUserByLoginIDResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchUserByLoginIDResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0" ref="ncidng:EntryArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchUserByGUIDResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:searchUserByGUIDResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchUserByGUIDResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0" ref="ncidng:EntryArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewUserByLoginIDResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:viewUserByLoginIDResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewUserByLoginIDResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0" ref="ncidng:EntryArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewUserByGUIDResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:viewUserByGUIDResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewUserByGUIDResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0" ref="ncidng:EntryArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewUserByDNResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:viewUserByDNResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="viewUserByDNResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0" ref="ncidng:EntryArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchUserByAttrResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:searchUserByAttrResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchUserByAttrResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0" ref="ncidng:EntryArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchAgenciesResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:searchAgenciesResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchAgenciesResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0"
+							ref="ncidng:AgencyArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchDivisionsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:searchDivisionsResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchDivisionsResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0"
+							ref="ncidng:DivisionArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchSectionsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:searchSectionsResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchSectionsResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0"
+							ref="ncidng:SectionArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="isMemberOfAGroupResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:isMemberOfAGroupResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="isMemberOfAGroupResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0"
+							ref="ncidng:MessageArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="modifyGroupResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:modifyGroupResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="modifyGroupResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0"
+							ref="ncidng:MessageArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="subscribeUserToGroupResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:subscribeUserToGroupResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="subscribeUserToGroupResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0"
+							ref="ncidng:MessageArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UnsubscribeUserFromGroupResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ncidng:UnsubscribeUserFromGroupResult" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UnsubscribeUserFromGroupResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="0"
+							ref="ncidng:MessageArray" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Error"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MessageArray">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" ref="ncidng:Message" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Message">
+				<xs:complexType mixed="true">
+					<xs:attribute name="code" type="xs:NMTOKEN" use="required" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="EntryArray">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" ref="ncidng:Entry" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Entry">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:group maxOccurs="1" minOccurs="1" ref="ncidng:userinfogroup" />
+						<xs:element maxOccurs="1" minOccurs="0" ref="ncidng:RoleArray" />
+						<xs:element maxOccurs="1" minOccurs="0"
+							ref="ncidng:ResourceArray" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AgencyArray">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" ref="ncidng:Agency" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Agency">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="1" name="Agency_Name"
+							type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="1" name="GUID"
+							type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="1" name="Agency_Type"
+							type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="0"
+							name="UserID_Generation_Type" type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="1" name="Status"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RoleArray">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Role"
+							nillable="true" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ResourceArray">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="Resource"
+							nillable="true" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DivisionArray">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" ref="ncidng:Division" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Division">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="1" name="Division_Name"
+							type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="1" name="GUID"
+							type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="1" name="Division_Type"
+							type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="1" name="Parent_Agency"
+							type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="0" name="Has_Sections"
+							type="xs:boolean" />
+						<xs:element maxOccurs="1" minOccurs="1" name="Status"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SectionArray">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" ref="ncidng:Section" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Section">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="1" minOccurs="1" name="Section_Name"
+							type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="1" name="GUID"
+							type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="1" name="Section_Type"
+							type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="1" name="Parent_Division"
+							type="xs:string" />
+						<xs:element maxOccurs="1" minOccurs="1" name="Status"
+							type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:group name="userinfogroup">
+				<xs:sequence>
+					<xs:element maxOccurs="1" minOccurs="1" name="User_DN"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="User_ID"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Personal_Title"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="First_Name"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Middle_Initial"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="Last_Name"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="Full_Name"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Suffix"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="User_Type"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Employee_Type"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="GUID"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0"
+						name="Account_Expiration_Date" type="xs:dateTime" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Login_Disabled"
+						type="xs:boolean" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Locked_by_Intruder"
+						type="xs:boolean" />
+					<xs:element maxOccurs="1" minOccurs="0"
+						name="Password_Expiration_Date" type="xs:dateTime" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Second_Factor_Role"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="Account_Status"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Migration_Status"
+						type="xs:boolean" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Business_Phone"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Business_Phone_Ext"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="1" name="eMail"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Street"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Address_Line2"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="City"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="State"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="Zip_Code"
+						type="xs:string" />
+					<xs:element maxOccurs="1" minOccurs="0" name="CR_Config"
+						type="xs:boolean" />
+					<xs:element maxOccurs="1" minOccurs="0"
+						ref="ncidng:Member_of_OrganizationArray" />
+					<xs:element maxOccurs="1" minOccurs="0"
+						ref="ncidng:Member_of_DivisionArray" />
+					<xs:element maxOccurs="1" minOccurs="0"
+						ref="ncidng:Member_of_SectionArray" />
+				</xs:sequence>
+			</xs:group>
+			<xs:element name="Member_of_OrganizationArray">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0"
+							name="Member_of_Organization" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Member_of_DivisionArray">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0"
+							name="Member_of_Division" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Member_of_SectionArray">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0"
+							name="Member_of_Section" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="NCIDWebServiceException">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="reason" nillable="true" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="UnsubscribeUserFromGroupRequest">
+		<wsdl:part element="sch:UnsubscribeUserFromGroupRequest"
+			name="UnsubscribeUserFromGroupRequest" />
+	</wsdl:message>
+	<wsdl:message name="viewUserByGUIDRequest">
+		<wsdl:part element="sch:viewUserByGUIDRequest" name="viewUserByGUIDRequest" />
+	</wsdl:message>
+	<wsdl:message name="authenticateToNCIDv2Request">
+		<wsdl:part element="sch:authenticateToNCIDv2Request" name="authenticateToNCIDv2Request" />
+	</wsdl:message>
+	<wsdl:message name="searchSectionsResponse">
+		<wsdl:part element="sch:searchSectionsResponse" name="searchSectionsResponse" />
+	</wsdl:message>
+	<wsdl:message name="searchUserByAttrResponse">
+		<wsdl:part element="sch:searchUserByAttrResponse" name="searchUserByAttrResponse" />
+	</wsdl:message>
+	<wsdl:message name="viewUserByDNRequest">
+		<wsdl:part element="sch:viewUserByDNRequest" name="viewUserByDNRequest" />
+	</wsdl:message>
+	<wsdl:message name="viewUserByLoginIDResponse">
+		<wsdl:part element="sch:viewUserByLoginIDResponse" name="viewUserByLoginIDResponse" />
+	</wsdl:message>
+	<wsdl:message name="searchUserByGUIDRequest">
+		<wsdl:part element="sch:searchUserByGUIDRequest" name="searchUserByGUIDRequest" />
+	</wsdl:message>
+	<wsdl:message name="searchDivisionsResponse">
+		<wsdl:part element="sch:searchDivisionsResponse" name="searchDivisionsResponse" />
+	</wsdl:message>
+	<wsdl:message name="searchUserByAttrRequest">
+		<wsdl:part element="sch:searchUserByAttrRequest" name="searchUserByAttrRequest" />
+	</wsdl:message>
+	<wsdl:message name="UnsubscribeUserFromGroupResponse">
+		<wsdl:part element="sch:UnsubscribeUserFromGroupResponse"
+			name="UnsubscribeUserFromGroupResponse" />
+	</wsdl:message>
+	<wsdl:message name="searchAgenciesRequest">
+		<wsdl:part element="sch:searchAgenciesRequest" name="searchAgenciesRequest" />
+	</wsdl:message>
+	<wsdl:message name="subscribeUserToGroupRequest">
+		<wsdl:part element="sch:subscribeUserToGroupRequest" name="subscribeUserToGroupRequest" />
+	</wsdl:message>
+	<wsdl:message name="viewUserByLoginIDRequest">
+		<wsdl:part element="sch:viewUserByLoginIDRequest" name="viewUserByLoginIDRequest" />
+	</wsdl:message>
+	<wsdl:message name="searchAgenciesResponse">
+		<wsdl:part element="sch:searchAgenciesResponse" name="searchAgenciesResponse" />
+	</wsdl:message>
+	<wsdl:message name="viewUserByDNResponse">
+		<wsdl:part element="sch:viewUserByDNResponse" name="viewUserByDNResponse" />
+	</wsdl:message>
+	<wsdl:message name="searchUserByLoginIDRequest">
+		<wsdl:part element="sch:searchUserByLoginIDRequest" name="searchUserByLoginIDRequest" />
+	</wsdl:message>
+	<wsdl:message name="modifyGroupResponse">
+		<wsdl:part element="sch:modifyGroupResponse" name="modifyGroupResponse" />
+	</wsdl:message>
+	<wsdl:message name="isMemberOfAGroupRequest">
+		<wsdl:part element="sch:isMemberOfAGroupRequest" name="isMemberOfAGroupRequest" />
+	</wsdl:message>
+	<wsdl:message name="modifyGroupRequest">
+		<wsdl:part element="sch:modifyGroupRequest" name="modifyGroupRequest" />
+	</wsdl:message>
+	<wsdl:message name="subscribeUserToGroupResponse">
+		<wsdl:part element="sch:subscribeUserToGroupResponse" name="subscribeUserToGroupResponse" />
+	</wsdl:message>
+	<wsdl:message name="searchSectionsRequest">
+		<wsdl:part element="sch:searchSectionsRequest" name="searchSectionsRequest" />
+	</wsdl:message>
+	<wsdl:message name="viewUserByGUIDResponse">
+		<wsdl:part element="sch:viewUserByGUIDResponse" name="viewUserByGUIDResponse" />
+	</wsdl:message>
+	<wsdl:message name="isMemberOfAGroupResponse">
+		<wsdl:part element="sch:isMemberOfAGroupResponse" name="isMemberOfAGroupResponse" />
+	</wsdl:message>
+	<wsdl:message name="searchUserByLoginIDResponse">
+		<wsdl:part element="sch:searchUserByLoginIDResponse" name="searchUserByLoginIDResponse" />
+	</wsdl:message>
+	<wsdl:message name="searchUserByGUIDResponse">
+		<wsdl:part element="sch:searchUserByGUIDResponse" name="searchUserByGUIDResponse" />
+	</wsdl:message>
+	<wsdl:message name="authenticateToNCIDv2Response">
+		<wsdl:part element="sch:authenticateToNCIDv2Response" name="authenticateToNCIDv2Response" />
+	</wsdl:message>
+	<wsdl:message name="searchDivisionsRequest">
+		<wsdl:part element="sch:searchDivisionsRequest" name="searchDivisionsRequest" />
+	</wsdl:message>
+	<wsdl:portType name="NCIDNGWebService">
+		<wsdl:operation name="UnsubscribeUserFromGroup">
+			<wsdl:input message="tns:UnsubscribeUserFromGroupRequest"
+				name="UnsubscribeUserFromGroupRequest" />
+			<wsdl:output message="tns:UnsubscribeUserFromGroupResponse"
+				name="UnsubscribeUserFromGroupResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="viewUserByGUID">
+			<wsdl:input message="tns:viewUserByGUIDRequest" name="viewUserByGUIDRequest" />
+			<wsdl:output message="tns:viewUserByGUIDResponse" name="viewUserByGUIDResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="authenticateToNCIDv2">
+			<wsdl:input message="tns:authenticateToNCIDv2Request"
+				name="authenticateToNCIDv2Request" />
+			<wsdl:output message="tns:authenticateToNCIDv2Response"
+				name="authenticateToNCIDv2Response" />
+		</wsdl:operation>
+		<wsdl:operation name="searchSections">
+			<wsdl:input message="tns:searchSectionsRequest" name="searchSectionsRequest" />
+			<wsdl:output message="tns:searchSectionsResponse" name="searchSectionsResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="searchUserByAttr">
+			<wsdl:input message="tns:searchUserByAttrRequest" name="searchUserByAttrRequest" />
+			<wsdl:output message="tns:searchUserByAttrResponse" name="searchUserByAttrResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="viewUserByDN">
+			<wsdl:input message="tns:viewUserByDNRequest" name="viewUserByDNRequest" />
+			<wsdl:output message="tns:viewUserByDNResponse" name="viewUserByDNResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="viewUserByLoginID">
+			<wsdl:input message="tns:viewUserByLoginIDRequest" name="viewUserByLoginIDRequest" />
+			<wsdl:output message="tns:viewUserByLoginIDResponse"
+				name="viewUserByLoginIDResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="searchUserByGUID">
+			<wsdl:input message="tns:searchUserByGUIDRequest" name="searchUserByGUIDRequest" />
+			<wsdl:output message="tns:searchUserByGUIDResponse" name="searchUserByGUIDResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="searchDivisions">
+			<wsdl:input message="tns:searchDivisionsRequest" name="searchDivisionsRequest" />
+			<wsdl:output message="tns:searchDivisionsResponse" name="searchDivisionsResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="searchAgencies">
+			<wsdl:input message="tns:searchAgenciesRequest" name="searchAgenciesRequest" />
+			<wsdl:output message="tns:searchAgenciesResponse" name="searchAgenciesResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="subscribeUserToGroup">
+			<wsdl:input message="tns:subscribeUserToGroupRequest"
+				name="subscribeUserToGroupRequest" />
+			<wsdl:output message="tns:subscribeUserToGroupResponse"
+				name="subscribeUserToGroupResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="searchUserByLoginID">
+			<wsdl:input message="tns:searchUserByLoginIDRequest" name="searchUserByLoginIDRequest" />
+			<wsdl:output message="tns:searchUserByLoginIDResponse"
+				name="searchUserByLoginIDResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="modifyGroup">
+			<wsdl:input message="tns:modifyGroupRequest" name="modifyGroupRequest" />
+			<wsdl:output message="tns:modifyGroupResponse" name="modifyGroupResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="isMemberOfAGroup">
+			<wsdl:input message="tns:isMemberOfAGroupRequest" name="isMemberOfAGroupRequest" />
+			<wsdl:output message="tns:isMemberOfAGroupResponse" name="isMemberOfAGroupResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="NCIDNGWebServiceSoap11" type="tns:NCIDNGWebService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="UnsubscribeUserFromGroup">
+			<soap:operation soapAction="" />
+			<wsdl:input name="UnsubscribeUserFromGroupRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="UnsubscribeUserFromGroupResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="viewUserByGUID">
+			<soap:operation soapAction="" />
+			<wsdl:input name="viewUserByGUIDRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="viewUserByGUIDResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="authenticateToNCIDv2">
+			<soap:operation soapAction="" />
+			<wsdl:input name="authenticateToNCIDv2Request">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="authenticateToNCIDv2Response">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchSections">
+			<soap:operation soapAction="" />
+			<wsdl:input name="searchSectionsRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchSectionsResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchUserByAttr">
+			<soap:operation soapAction="" />
+			<wsdl:input name="searchUserByAttrRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchUserByAttrResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="viewUserByDN">
+			<soap:operation soapAction="" />
+			<wsdl:input name="viewUserByDNRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="viewUserByDNResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="viewUserByLoginID">
+			<soap:operation soapAction="" />
+			<wsdl:input name="viewUserByLoginIDRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="viewUserByLoginIDResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchUserByGUID">
+			<soap:operation soapAction="" />
+			<wsdl:input name="searchUserByGUIDRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchUserByGUIDResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchDivisions">
+			<soap:operation soapAction="" />
+			<wsdl:input name="searchDivisionsRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchDivisionsResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchAgencies">
+			<soap:operation soapAction="" />
+			<wsdl:input name="searchAgenciesRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchAgenciesResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="subscribeUserToGroup">
+			<soap:operation soapAction="" />
+			<wsdl:input name="subscribeUserToGroupRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="subscribeUserToGroupResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchUserByLoginID">
+			<soap:operation soapAction="" />
+			<wsdl:input name="searchUserByLoginIDRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="searchUserByLoginIDResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="modifyGroup">
+			<soap:operation soapAction="" />
+			<wsdl:input name="modifyGroupRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="modifyGroupResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="isMemberOfAGroup">
+			<soap:operation soapAction="" />
+			<wsdl:input name="isMemberOfAGroupRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="isMemberOfAGroupResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="NCIDNGWebServiceService">
+		<wsdl:port binding="tns:NCIDNGWebServiceSoap11" name="NCIDNGWebServiceSoap11">
+			<soap:address location="http://localhost:9080/ncidWS/NCIDNGWebServiceService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

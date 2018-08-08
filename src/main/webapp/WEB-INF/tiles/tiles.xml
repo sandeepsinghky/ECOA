@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- Base Layout Definition which is included in all pages -->
+	<definition name="baseEcoa.definition" template="/WEB-INF/jsp/layout/ecoaLayout.jsp">
+		<put-attribute name="title" value="" />	
+		<put-attribute name="topBar" value="/WEB-INF/jsp/navigation/topBar.jsp" />	
+		<put-attribute name="header" value="/WEB-INF/jsp/navigation/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/navigation/menu.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/jsp/navigation/navigationHome.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/navigation/footerPlain.jsp" />
+	</definition>	
+	<definition name="baseEcoaApplEntry.definition" template="/WEB-INF/jsp/layout/ecoaApplEntryLayout.jsp">
+	    <put-attribute name="title" value="" />			
+		<put-attribute name="topBar" value="/WEB-INF/jsp/navigation/topBar.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/navigation/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/navigation/menu.jsp" />
+		<put-attribute name="progressTracker" value="/WEB-INF/jsp/navigation/progressTracker.jsp" />		
+		<put-attribute name="footer" value="/WEB-INF/jsp/navigation/footerPlain.jsp" />
+	</definition>	
+	<definition name="baseEcoaParents.definition" template="/WEB-INF/jsp/layout/ecoaParentLayout.jsp">
+		<put-attribute name="title" value="" />	
+		<put-attribute name="topBar" value="/WEB-INF/jsp/navigation/topBar.jsp" />	
+		<put-attribute name="header" value="/WEB-INF/jsp/navigation/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/navigation/menu.jsp" />		
+		<put-attribute name="navigation" value="/WEB-INF/jsp/navigation/navigationParent.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/navigation/footerPlain.jsp" />
+	</definition>	
+	<definition name="baseEcoaEmployers.definition" template="/WEB-INF/jsp/layout/ecoaEmployerLayout.jsp">
+		<put-attribute name="title" value="" />			
+		<put-attribute name="header" value="/WEB-INF/jsp/navigation/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/navigation/menuEmployers.jsp" />		
+		<put-attribute name="navigation" value="/WEB-INF/jsp/navigation/navigationEmployer.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/navigation/footerPlain.jsp" />
+	</definition>	
+	<definition name="baseEcoa.empty" template="/WEB-INF/jsp/layout/empty.jsp">
+		<put-attribute name="title" value="" />
+	</definition>	
+	<!-- End base layout -->
+	
+	<!-- Begin Layout for Login page for Existing/pre-NCID user -->
+	<definition name="LOGINp" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Parents Login Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/loginp.jsp" />
+	</definition> 	
+	
+	<!-- Login page layout New user/NCID user login page-->
+	<definition name="LOGIN" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Login Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/login.jsp" />
+	</definition>
+	
+	<!-- Begin Layout for converted existing user to NCID  -->
+	<definition name="LOGINnp" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="NCID Parents Login Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/loginnp.jsp" />
+	</definition>	
+	
+	<!-- Begin Layout for Interim Login page for old user trying to apply for services  -->
+	<definition name="INTLOGOUT" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Interim Logout Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/interimLogout.jsp" />
+	</definition>	
+	<!-- End Login Pages -->			
+	
+		
+	<!-- Begin Layout Definition for Case Application pages -->	
+	<definition name="ECOA_programInfo" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Child Support Services Program Information" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/cssProgramInfo.jsp" />
+	</definition>
+	<definition name="ECOA_caseApplicationInfo" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Case Application Information" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/caseApplicationInfo.jsp" />
+	</definition>
+	<definition name="ECOA_caseApplicationSteps" extends="baseEcoa.definition">
+		<put-attribute name="title" value="caseApplicationSteps" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/caseApplicationSteps.jsp" />
+	</definition>		
+	<definition name="ECOA_progFeesAndPolicies" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Child Support Program Fees And Policies" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/progFeesAndPolicies.jsp" />
+	</definition>	
+	<definition name="ECOA_privacyPolicy" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Child Support Privacy And Security Statement" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/privacyPolicy.jsp" />
+	</definition>		
+	<definition name="ECOA_contactUs" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Child Support Services Contact Information" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/contactUs.jsp" />
+	</definition>	
+	<definition name="ECOA_feedBack" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Child Support Services Feedback Form" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/feedBackForm.jsp" />
+	</definition>	
+	<definition name="ECOA_anonymousTipLine" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Anonymous Tip Line" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/anonymousTipLine.jsp" />
+	</definition>	
+	<definition name="ECOA_loggedInHome" extends="baseEcoa.definition">
+		<put-attribute name="title" value="North Carolina Child Support Services" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/loggedInHome.jsp" />
+	</definition>		
+	<definition name="ECOA_loginHelp" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Login Help" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/loginHelp.jsp" />
+	</definition>	
+	<definition name="ECOA_caseFinancialHelp" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Case Financial Help" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/caseFinancialHelp.jsp" />
+	</definition>		
+	<definition name="ECOA_reports" extends="baseEcoa.definition">
+		<put-attribute name="title" value="View Application" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/reports.jsp" />
+	</definition>	
+		
+	<!-- Users applying for support using NCID -->
+				
+	<definition name="ECOA_caseApplicationList" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Case Application List" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/applentry/caseApplicationList.jsp" />
+	</definition>	
+	<definition name="ECOA_applicantRNR" extends="baseEcoaApplEntry.definition">
+		<put-attribute name="title" value="Applicant Rights Responsibilities" />		
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/applentry/applicantRNR.jsp" />
+	</definition>
+	<definition name="ECOA_applicantInfo" extends="baseEcoaApplEntry.definition">
+		<put-attribute name="title" value="Applicant Information" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/applentry/applicantInfo.jsp" />
+	</definition>
+	<definition name="ECOA_caseApplicationChildInfo" extends="baseEcoaApplEntry.definition">
+		<put-attribute name="title" value="Child Information" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/applentry/caseApplicationChildInfo.jsp" />
+	</definition>
+	<definition name="ECOA_caseApplicationChildDetails" extends="baseEcoaApplEntry.definition">
+		<put-attribute name="title" value="Child Information Details" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/applentry/caseApplicationChildDetails.jsp" />
+	</definition>
+	<definition name="ECOA_caseApplicationCPInfo" extends="baseEcoaApplEntry.definition">
+		<put-attribute name="title" value="Custodial Parent Information" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/applentry/caseApplicationCPInfo.jsp" />
+	</definition>
+	<definition name="ECOA_caseApplicationNCPInfo" extends="baseEcoaApplEntry.definition">
+		<put-attribute name="title" value="Non-Custodial Parent Information" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/applentry/caseApplicationNCPInfo.jsp" />
+	</definition>
+	<definition name="ECOA_caseApplicationNCPDetails" extends="baseEcoaApplEntry.definition">
+		<put-attribute name="title" value="Non-Custodial Parent Details" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/applentry/caseApplicationNCPDetails.jsp" />
+	</definition>
+	<definition name="ECOA_caseApplicationMiscInfo" extends="baseEcoaApplEntry.definition">
+		<put-attribute name="title" value="Case Application Misc Information" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/applentry/caseApplicationMiscInfo.jsp" />
+	</definition>
+	
+	<definition name="ECOA_caseApplicationSubmission" extends="baseEcoaApplEntry.definition">
+		<put-attribute name="title" value="Case Application Submission" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/applentry/caseApplicationSubmission.jsp" />
+	</definition>
+	<!-- End Layout Definition for Case Application pages -->
+	
+	
+	<!-- Begin Layout Definition for Parent section  pages -->
+	
+	<definition name="ECOA_parentsLegend"  extends="baseEcoa.empty">
+		<put-attribute name="title" value="Color Description" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/legend.jsp" />
+	</definition>	
+	<definition name="ECOA_parentsLoginHelp" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Login Help" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/loginHelp.jsp" />
+	</definition>	
+	<definition name="ECOA_parentsCaseFinancialHelp" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Case Financial Help" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/caseFinancialHelp.jsp" />
+	</definition>	
+	<definition name="ECOA_parentAccountSummary" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Parent Account Summary" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/parents/parentAccountSummary.jsp" />
+	</definition>	
+	<definition name="ECOA_caseList" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="view Parent Case List" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/caseList.jsp" />
+	</definition>
+	<definition name="ECOA_caseDetail" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="view Parent Case Detail" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/caseDetail.jsp" />
+	</definition>	
+	<definition name="ECOA_caseSchedules" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="view Parent Case appointments and hearings" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/caseSchedules.jsp" />
+	</definition>	
+	<definition name="ECOA_obligationSummary" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="view Parent Case obligation summary" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/obligationSummary.jsp" />
+	</definition>
+	<definition name="ECOA_parentWelcome" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="view Parent Welcome page" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/parentWelcome.jsp" />
+	</definition>
+    
+	<definition name="ECOA_parentErrorPage" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Parent Error Page" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/content/ecoa/parents/errorPage.jsp" />
+	</definition>
+	<definition name="ECOA_userWelcome" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="view user Welcome page" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/userWelcome.jsp" />
+	</definition>	
+	<definition name="ECOA_requestConfirmation" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="request Confirmation" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/requestConfirmation.jsp" />
+	</definition>	
+	<definition name="ECOA_userIdentifyInfo" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="get user Identify Info" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/userIdentify.jsp" />
+	</definition>	
+	<definition name="ECOA_preUserIdentify" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="get old user Identify Process" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/preUserIdentify.jsp"/>
+	</definition>	
+	<definition name="ECOA_profile" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="User Profile" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/userProfile.jsp" />
+	</definition>	
+	<definition name="ECOA_preUserprofile" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="preUser Profile" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/preUserProfile.jsp" />
+	</definition>	
+	<definition name="ECOA_clientChecks" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="CP paid checks" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/clientChecks.jsp" />
+	</definition>	
+	<definition name="ECOA_ncpPayments" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="NCP Payments"/>
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/ecoa/parents/ncpPayments.jsp" />
+	</definition>
+	<definition name="ECOA_parentClerkOfCourtSearch" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Clerk Of Courts Search" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/clerkOfCourtSearch.jsp" />
+	</definition>	
+	<definition name="ECOA_parentClerkOfCourtList" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Clerk Of Courts Page List" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/clerkOfCourtList.jsp"/>
+	</definition>	
+	<definition name="ECOA_parentClerkOfCourtDetail" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Clerk Of Courts Detail" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/clerkOfCourtDetail.jsp"/>
+	</definition>	
+	<definition name="ECOA_parentCseOfficeSearch" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="CSE Office Search" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/cseOfficeSearch.jsp" />
+	</definition>	
+	<definition name="ECOA_parentCseOfficeList" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="CSE Office Page List" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/cseOfficeList.jsp"/>
+	</definition>	
+	<definition name="ECOA_parentCseOfficeDetail" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="CSE Office Detail" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/cseOfficeDetail.jsp"/>
+	</definition>	         
+	 <definition name="ECOA_guideLinesTable" extends="baseEcoaParents.definition">
+        <put-attribute name="title" value="CSE Guide Lines Table" />
+        <put-attribute name="body" value="/WEB-INF/jsp/content/guideLinesTable.jsp" />
+     </definition>          
+     <definition name="ECOA_cseGuideLines" extends="baseEcoaParents.definition">
+        <put-attribute name="title" value="CSE Guide Lines" />
+        <put-attribute name="body" value="/WEB-INF/jsp/content/cseGuideLines.jsp" />
+     </definition>     
+     <definition name="ECOA_cseGuideLineDetails" extends="baseEcoaParents.definition">
+         <put-attribute name="title" value="CSE Guide Lines Details" />
+         <put-attribute name="body" value="/WEB-INF/jsp/content/cseGuideLineDetails.jsp" />
+     </definition>     
+     <definition name="ECOA_workSheetA" extends="baseEcoaParents.definition">
+          <put-attribute name="title" value="Work SheetA" />
+          <put-attribute name="body" value="/WEB-INF/jsp/content/workSheetA.jsp" />
+     </definition>     
+      <definition name="ECOA_workSheetACalc" extends="baseEcoaParents.definition">
+          <put-attribute name="title" value="Work Sheet A Calc" />
+          <put-attribute name="body" value="/WEB-INF/jsp/content/workSheetACalc.jsp" />
+     </definition>     
+     <definition name="ECOA_workSheetB" extends="baseEcoaParents.definition">
+          <put-attribute name="title" value="Work Sheet B" />
+          <put-attribute name="body" value="/WEB-INF/jsp/content/workSheetB.jsp" />
+     </definition>     
+     <definition name="ECOA_workSheetBCalc" extends="baseEcoaParents.definition">
+           <put-attribute name="title" value="Work Sheet B Calc" />
+           <put-attribute name="body" value="/WEB-INF/jsp/content/workSheetBCalc.jsp" />
+     </definition>     
+     <definition name="ECOA_workSheetC" extends="baseEcoaParents.definition">
+           <put-attribute name="title" value="Work Sheet C" />
+           <put-attribute name="body" value="/WEB-INF/jsp/content/workSheetC.jsp" />
+     </definition>     
+      <definition name="ECOA_workSheetCCalc" extends="baseEcoaParents.definition">
+           <put-attribute name="title" value="Work Sheet C Calc" />
+           <put-attribute name="body" value="/WEB-INF/jsp/content/workSheetCCalc.jsp" />
+     </definition>     
+     <definition name="ECOA_parentFeesAndPolicies" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Child Support Program Fees And Policies" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/progFeesAndPolicies.jsp" />
+	</definition>	
+	<definition name="ECOA_parentPrivacyPolicy" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Child Support Privacy And Security Statement" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/privacyPolicy.jsp" />
+	</definition>	
+	<definition name="ECOA_parentsContactUs" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Child Support Services Contact Information" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/contactUs.jsp" />
+	</definition>	
+	<definition name="ECOA_parentsFeedBack" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Child Support Services Feedback Form" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/feedBackForm.jsp" />
+	</definition>	
+	<!-- End Layout Definition for Parent pages -->
+	
+	<!-- Begin parents with NCID -->
+	
+	<definition name="ECOA_parentCaseApplicationInfo" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Case Application Information" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/caseApplicationInfo.jsp" />
+	</definition>
+	<definition name="ECOA_parentCaseApplicationSteps" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="caseApplicationSteps" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/caseApplicationSteps.jsp" />
+	</definition>
+	<definition name="ECOA_parentProgramInfo" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Child Support Services Program Information" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/cssProgramInfo.jsp" />
+	</definition>
+	<definition name="ECOA_parentCaseApplicationList" extends="baseEcoaParents.definition">
+		<put-attribute name="title" value="Case Application List" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/ecoa/applentry/caseApplicationList.jsp" />
+	</definition>	
+	
+	<!-- end -->
+	
+	<!-- Begin Employers page layout -->
+	<definition name="ECOA_employerCseOfficeSearch" extends="baseEcoaEmployers.definition">
+		<put-attribute name="title" value="CSE Office Search" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/cseOfficeSearch.jsp" />
+	</definition>	
+	<definition name="ECOA_employerCseOfficeList" extends="baseEcoaEmployers.definition">
+		<put-attribute name="title" value="CSE Office Page List" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/cseOfficeList.jsp"/>
+	</definition>	
+	<definition name="ECOA_employerCseOfficeDetail" extends="baseEcoaEmployers.definition">
+		<put-attribute name="title" value="CSE Office Detail" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/cseOfficeDetail.jsp"/>
+	</definition>	
+	<definition name="ECOA_employerClerkOfCourtSearch" extends="baseEcoaEmployers.definition">
+		<put-attribute name="title" value="Clerk Of Courts Search" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/clerkOfCourtSearch.jsp" />
+	</definition>	
+	<definition name="ECOA_employerClerkOfCourtList" extends="baseEcoaEmployers.definition">
+		<put-attribute name="title" value="Clerk Of Courts Page List" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/clerkOfCourtList.jsp"/>
+	</definition>	
+	<definition name="ECOA_employerClerkOfCourtDetail" extends="baseEcoaEmployers.definition">
+		<put-attribute name="title" value="Clerk Of Courts Detail" />
+		<put-attribute name="body"	value="/WEB-INF/jsp/content/clerkOfCourtDetail.jsp"/>
+	</definition>
+	<!-- End Employers page layout -->	
+
+	<!-- Errors -->
+	<definition name="accessDenied" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Access Denied" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/accessDenied.jsp" />
+	</definition>
+	
+	<definition name="apperror" extends="baseEcoaApplEntry.definition">
+		<put-attribute name="title" value="Error" />
+		<put-attribute name="body" value="/WEB-INF/jsp/errors/error.jsp" />
+	</definition>
+	<definition name="error" extends="baseEcoa.definition">
+		<put-attribute name="title" value="AppError" />
+		<put-attribute name="body" value="/WEB-INF/jsp/errors/error.jsp" />
+	</definition>
+	<definition name="404" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Page Not Found" />
+		<put-attribute name="body" value="/WEB-INF/jsp/errors/404.jsp" />
+	</definition>
+	<definition name="LOGOUT" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Logout Page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/content/logout.jsp" />
+	</definition>
+	<definition name="403" extends="baseEcoa.definition">
+		<put-attribute name="title" value="Access Denied" />
+		<put-attribute name="body" value="/WEB-INF/jsp/errors/403.jsp" />
+	</definition>
+</tiles-definitions>

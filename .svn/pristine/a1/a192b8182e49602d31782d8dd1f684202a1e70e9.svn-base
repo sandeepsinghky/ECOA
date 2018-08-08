@@ -1,0 +1,106 @@
+.boldLarge {
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+.boldLargeCenter {
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: center;
+}
+
+.boldRegular {
+	font-weight: bold;
+}
+
+.boldCenter {
+	font-weight: bold;
+	text-align: center;
+}
+
+.headerTable {
+	font-weight: bold;
+}
+
+.reportData {
+	
+}
+
+.cellBorder {
+	border: 1px solid thin #000;
+}
+
+.underLine {
+	text-decoration: underline;
+}
+
+.boldUnderLine {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.cellUnderline {
+	border-bottom: 1px solid thin #000;
+}
+
+.cellBoldUnderline {
+	border-bottom: 1px solid thin #000;
+	font-weight: bold;
+}
+
+.box {
+	border: 1px solid #000;
+	font-weight: bold;
+}
+
+.cellLargeUnderline {
+	border-bottom: 1px solid thin #000;
+	font-size: 12pt;
+}
+
+.doubleLineDivider {
+	border-bottom: 1px solid thick #000;
+	border-top: 1px solid thick #000;
+}
+
+.cellTopBottomUnderline {
+	border-bottom: 1px solid thin #000;
+	border-top: 1px solid thin #000;
+}
+
+.rptHeading {
+	font-size: 17pt;
+	border-bottom: 1px solid thin #000;
+	border-top: 1px solid thin #000;
+}
+
+.center {
+	text-align: center;
+}
+
+.labName {
+	font-size: 17pt;
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.leftBold {
+	text-align: left;
+	font-weight: bold;
+}
+
+.cellEmptyLarge {
+	border: 1px solid thin #000;
+	height: 80px;
+	float: left;
+	font-size: 17pt;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.thickSeparator {
+	border-bottom: 1px solid thick #000;
+}

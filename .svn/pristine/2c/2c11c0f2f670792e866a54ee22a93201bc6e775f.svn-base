@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd                           
+                           http://www.springframework.org/schema/security
+                           http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	<global-method-security secured-annotations="enabled" />
+	
+	<!-- <mvc:annotation-driven /> -->
+	<!-- <debug /> -->
+	
+	<http pattern="/403.htm" security="none" />	
+	<http pattern="/404.htm" security="none" />
+	<http pattern="/500.htm" security="none" />
+	<http pattern="/error.htm" security="none" />
+	<http pattern="/css/**" security="none" />
+	<http pattern="/images/**" security="none" />	
+	<http pattern="/js/**" security="none" />
+	<http pattern="/login.htm" security="none" />
+	<http pattern="/loginp.htm" security="none" />
+	<http pattern="/loginnp.htm" security="none" />
+		
+	<http pattern="*/accessDenied.htm" security="none" />
+	<http pattern="*/anonymousTipLine.htm" security="none" />
+	<http pattern="*/caseApplicationInfo.htm" security="none" />	
+	<http pattern="*/caseApplicationSteps.htm" security="none" />
+	<http pattern="*/caseFinancialHelp.htm" security="none" />
+		
+	<http pattern="*/clerkOfCourtSearch/*.htm" security="none" />
+	<http pattern="*/clerkOfCourtList/*.htm" security="none" />
+	<http pattern="*/clerkOfCourtDetail/*.htm" security="none" />	
+	<http pattern="*/cseOfficeSearch/*.htm" security="none" />
+	<http pattern="*/cseOfficeList/*.htm" security="none" />
+	<http pattern="*/cseOfficeDetail/*.htm" security="none" />	
+	<http pattern="*/contactUs/*.htm" security="none" />		
+	
+	<http pattern="*/cseGuideLineDetails.htm" security="none" />
+	<http pattern="*/cseGuideLines.htm" security="none" />
+	<http pattern="*/cssProgramInfo.htm" security="none" />
+	<http pattern="*/feedBackForm.htm" security="none" />
+	<http pattern="*/guideLinesTable.htm" security="none" />
+	<http pattern="*/legend.htm" security="none" />
+	<http pattern="/loginHelp.htm" security="none" />
+	<http pattern="/privacyPolicy.htm" security="none" />
+	<http pattern="/progFeesAndPolicies.htm" security="none" />
+	<http pattern="/workSheetA.htm" security="none" />
+	<http pattern="/workSheetACalc.htm" security="none" />
+	<http pattern="/workSheetB.htm" security="none" />
+	<http pattern="/workSheetBCalc.htm" security="none" />
+	<http pattern="/workSheetC.htm" security="none" />
+	<http pattern="/workSheetCCalc.htm" security="none" />
+		
+
+	<http use-expressions="true">
+		
+		<!-- <intercept-url pattern="/**" access="hasAnyRole('IS_AUTHENTICATED_ANONYMOUSLY')" requires-channel="https"/>
+    -->
+	    
+		<!-- <intercept-url pattern="/login.htm*" access="IS_AUTHENTICATED_ANONYMOUSLY" /> <intercept-url pattern="/loginRoute.htm*"access="hasRole('PERMISSION_GENERAL_USER_PERMISSION"/> -->
+	
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/applicantRNR.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/applicantInfo.htm*" requires-channel="https"/>
+
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/caseApplicationList.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/caseApplicationMiscInfo.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/caseApplicationSubmission.htm*" requires-channel="https"/>
+
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/caseApplicationChildInfo.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/caseApplicationChildDetails.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/caseApplicationCPInfo.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/caseApplicationNCPDetails.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/caseApplicationNCPInfo.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/deleteApplication.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/reports?ReportName=ecoa\all\*" requires-channel="https"/>
+
+         <intercept-url access="hasAnyRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/updateProfile.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasAnyRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID', 'PERMISSION_VIEW_EDIT_ALL_USERS_PRE_NCID')" pattern="/cssp/user/userProfile.htm*" requires-channel="https"/>	
+			
+		
+		
+		<intercept-url access="hasAnyRole('PERMISSION_VIEW_EDIT_ALL_REG_USERS_NCID','PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/cssp/user/nParentAccountSummary.htm*" requires-channel="https"/>
+				
+		<!-- PreNcID Users & Re-Registered user access -->
+		
+		<intercept-url access="hasAnyRole('PERMISSION_VIEW_EDIT_ALL_REG_USERS_NCID', 'PERMISSION_VIEW_EDIT_ALL_USERS_PRE_NCID')" pattern="/cssp/user/parentAccountSummary.htm*" requires-channel="https"/>	
+			
+		<intercept-url access="hasAnyRole('PERMISSION_VIEW_EDIT_ALL_REG_USERS_NCID','PERMISSION_VIEW_EDIT_ALL_USERS_PRE_NCID')" pattern="/cssp/user/parentCaseList.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasAnyRole('PERMISSION_VIEW_EDIT_ALL_REG_USERS_NCID','PERMISSION_VIEW_EDIT_ALL_USERS_PRE_NCID')" pattern="/cssp/user/parentCaseDetail.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasAnyRole('PERMISSION_VIEW_EDIT_ALL_REG_USERS_NCID','PERMISSION_VIEW_EDIT_ALL_USERS_PRE_NCID')" pattern="/cssp/user/paymentInformation.htm*" requires-channel="https"/>
+		
+		<intercept-url access="hasAnyRole('PERMISSION_VIEW_EDIT_ALL_REG_USERS_NCID','PERMISSION_VIEW_EDIT_ALL_USERS_PRE_NCID')" pattern="/cssp/user/appointmentsHearings.htm*" requires-channel="https" />
+				
+		<intercept-url access="hasAnyRole('PERMISSION_VIEW_EDIT_ALL_REG_USERS_NCID','PERMISSION_VIEW_EDIT_ALL_USERS_PRE_NCID')" pattern="/cssp/user/obligationSummary.htm*" requires-channel="https"/>
+			
+		
+		<!-- PreNcID users -->
+		
+		<intercept-url access="hasAnyRole('PERMISSION_VIEW_EDIT_ALL_REG_USERS_NCID')" pattern="/cssp/user/interimLogout.htm*" requires-channel="https"/>
+		
+		
+		<intercept-url access="hasAnyRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID', 'PERMISSION_VIEW_EDIT_ALL_USERS_PRE_NCID', 'PERMISSION_VIEW_EDIT_ALL_REG_USERS_NCID', 'PERMISSION_GENERAL_USER_PERMISSION')" pattern="/logout.htm*" requires-channel="https"/>
+		
+		<!-- <intercept-url access="hasRole('PERMISSION_GENERAL_USER_PERMISSION')" pattern="/cssp/**" /> -->
+		
+		<intercept-url  pattern="/cssp/user/**" access="isAuthenticated()" requires-channel="https"/>
+		
+		<intercept-url access="hasRole('PERMISSION_VIEW_EDIT_ALL_USERS_NCID')" pattern="/reports*" requires-channel="https"/>
+			
+			<!-- authentication-success-handler-ref= -->	
+			
+		<form-login login-page='/index.jsp' login-processing-url="/j_spring_security_check" default-target-url='/loginRoute.htm'
+			authentication-failure-url="/loginerr.htm?login_error=1" always-use-default-target='true' />
+		<logout delete-cookies="true" logout-success-url='/logoutRoute.htm' />
+				
+		<session-management>
+        		<concurrency-control max-sessions="1"/>        		
+    	</session-management>   	
+		
+	</http>		
+	
+	
+	
+	<!-- <authentication-manager> <authentication-provider> <user-service> <user name="ecoauser" password="password" authorities="PERMISSION_GENERAL_USER_PERMISSION" 
+		/> </user-service> </authentication-provider> </authentication-manager> -->
+
+
+	<authentication-manager erase-credentials="true">
+		<authentication-provider ref="daoAuthenticationProvider" />
+	</authentication-manager>
+
+
+	<beans:bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+		<beans:property name="decisionVoters">
+			<beans:list>
+				<beans:ref bean="roleVoter" />
+				<beans:ref bean="authenticatedVoter" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+	<beans:bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter">
+		<beans:property name="rolePrefix" value="PERMISSION_" />
+	</beans:bean>
+
+	<beans:bean id="authenticatedVoter" class="org.springframework.security.access.vote.AuthenticatedVoter" />
+
+	<beans:bean id="daoAuthenticationProvider" class="nc.dhhs.nccss.acts.ecoa.web.security.EcoaDaoAuthenticationProvider">
+		<beans:property name="userDetailsService" ref="userDetailsService" />
+	</beans:bean>
+
+	<beans:bean id="userDetailsService" class="nc.dhhs.nccss.acts.ecoa.web.security.EcoaUserDetailsServiceImpl">
+		<beans:property name="authenticationService" ref="authenticationService" />			
+	</beans:bean>
+
+	<beans:bean id="authenticationService" class="nc.dhhs.nccss.acts.ecoa.web.service.impl.AuthenticationWebServiceImpl" />	
+	
+
+</beans:beans>
+    
+	
